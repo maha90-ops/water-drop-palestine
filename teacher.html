@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>لوحة المعلم — رحلة قطرة ماء</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&family=Tajawal:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/teacher.css">
+</head>
+<body class="teacher">
+  <a class="skip" href="#t-main">تخطَّ إلى المحتوى</a>
+  <header class="topbar">
+    <div class="tatreez-strip" aria-hidden="true"></div>
+    <div class="topbar-in">
+      <a class="brand" href="index.html" aria-label="العودة إلى موقع الطالب">
+        <span class="brand-drop" aria-hidden="true">📊</span>
+        <span class="brand-t">لوحة المعلم <small>رحلة قطرة ماء في فلسطين 🇵🇸</small></span>
+      </a>
+      <nav class="nav" aria-label="التنقل" style="margin-inline-start:auto">
+        <a class="nav-b teacher-link" href="index.html"><span aria-hidden="true">💧</span><span class="nav-t">موقع الطالب</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="t-main" tabindex="-1">
+    <section class="card t-intro">
+      <div>
+        <h1>📊 متابعة الفاقد التعليمي: دورة المياه في الطبيعة</h1>
+        <p class="lead">الصف الرابع (أ) — <b>بيانات تجريبية</b> لعرض فكرة اللوحة، مع إضافة بيانات الطالب الحقيقية المحفوظة على هذا الجهاز (إن وُجدت).</p>
+      </div>
+      <div class="seg" role="group" aria-label="عرض البيانات">
+        <button type="button" class="seg-b" data-view="pre" aria-pressed="true">🔎 التشخيص القبلي</button>
+        <button type="button" class="seg-b" data-view="post" aria-pressed="false">📈 بعد التدخل</button>
+      </div>
+    </section>
+
+    <section class="kpis" id="kpis" aria-label="مؤشرات عامة"></section>
+
+    <div class="t-grid">
+      <section class="card" aria-labelledby="dist-h">
+        <h2 id="dist-h">🧠 توزيع مستويات الطلاب في كل مهارة</h2>
+        <p class="muted small">اضغط على أي مهارة لمعرفة الطلاب الذين يحتاجون إلى تدخل.</p>
+        <div class="legend"><span>🟢 أتقن</span><span>🟡 يحتاج إلى تدريب</span><span>🔴 يحتاج إلى دعم</span></div>
+        <div id="dist"></div>
+      </section>
+      <section class="card" aria-labelledby="det-h" id="detail-card">
+        <h2 id="det-h">👥 طلاب يحتاجون إلى تدخل</h2>
+        <div id="detail" aria-live="polite"><p class="muted">اختر مهارة من القائمة لعرض الطلاب.</p></div>
+      </section>
+    </div>
+
+    <section class="card" aria-labelledby="imp-h">
+      <h2 id="imp-h">📈 أثر السقالات: متوسط الإتقان لكل مهارة</h2>
+      <div class="legend"><span><i class="sw s1"></i> قبل التدخل</span><span><i class="sw s2"></i> بعد السقالات</span><span><i class="sw s3"></i> بعد إزالة السقالات</span></div>
+      <div id="impact" class="impact"></div>
+    </section>
+
+    <section class="card" aria-labelledby="tbl-h">
+      <div class="tbl-head">
+        <h2 id="tbl-h">📋 مستوى كل طالب</h2>
+        <label class="filter">تصفية: <select id="filter">
+          <option value="all">كل الطلاب</option>
+          <option value="red">لديه مهارة 🔴 تحتاج دعمًا</option>
+          <option value="yellow">لديه مهارة 🟡 تحتاج تدريبًا</option>
+          <option value="green">أتقن كل المهارات 🟢</option>
+        </select></label>
+      </div>
+      <div class="tbl-wrap"><table class="t-table" id="table"></table></div>
+    </section>
+  </main>
+
+  <footer class="site-foot">🫒 البيانات تجريبية للنسخة الأولى — لا يوجد خادم، وتُقرأ بيانات الطالب المحلية من هذا المتصفح فقط.</footer>
+
+  <div id="modal-root" hidden></div>
+  <div id="toast-root" class="toasts" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/teacher.js"></script>
+</body>
+</html>
